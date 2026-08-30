@@ -1,0 +1,25 @@
+{application, gbif_filter, [
+    {description, "em_filter agent for GBIF species occurrence images"},
+    {vsn, "0.1.0"},
+    {registered, [gbif_filter_sup, gbif_filter_server]},
+    {mod, {gbif_filter_app, []}},
+    {applications, [
+        kernel,
+        stdlib,
+        ssl,
+        inets,
+        cowboy,
+        em_filter
+    ]},
+    {env, [
+        {pop_port,   0},
+        {query_port, 0},
+        {pop_seeds,  []}
+    ]},
+    {modules, [
+        gbif_filter_sup,
+        gbif_filter_server
+    ]},
+    {licenses, ["Apache-2.0"]},
+    {links, [{"GitHub", "https://github.com/EmergenceSystem/gbif_filter"}]}
+]}.
